@@ -1,0 +1,23 @@
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body" *ngIf="editFromTo != null">
+                    <ng-container *ngIf="c">
+                        <h4 class="card-title">List To</h4>
+                    </ng-container>
+                    <ng-container *ngIf="c == false">
+                        <h4 class="card-title">List From</h4>
+                    </ng-container>
+                    <form [formGroup]="editFromTo" (ngSubmit)="update()">
+                        <label for="exampleInputName1">Name</label>
+                        <div class="form-group">
+                            <input type="text" pInputText formControlName="name" style="width:100%; color: #404244; font-family: Poppins;" placeholder="Content" />
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

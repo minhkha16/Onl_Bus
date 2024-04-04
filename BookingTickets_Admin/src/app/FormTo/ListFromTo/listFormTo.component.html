@@ -1,0 +1,33 @@
+<p-table [value]="formtos" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10, 25, 50]">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Options</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-fromto>
+        <tr>
+            <td> {{fromto.id}}</td>
+            <td> {{fromto.name}}</td>
+            <td>
+                <ng-container *ngIf="a">
+                    <a [routerLink]="['/editto',{id:fromto.id}]">
+                        <p-button styleClass="p-button-danger p-button-text" icon="pi pi-calendar-minus"></p-button>
+                    </a>
+                </ng-container>
+                <ng-container *ngIf="a == false">
+                    <a [routerLink]="['/editfrom',{id:fromto.id}]">
+                        <p-button styleClass="p-button-danger p-button-text" icon="pi pi-calendar-minus"></p-button>
+                    </a>
+                </ng-container>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-table>

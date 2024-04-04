@@ -1,0 +1,174 @@
+<div class="preloader" id="preloader">
+    <div class="loader">
+        <svg class="spinner" viewBox="0 0 50 50">
+			<circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+		</svg>
+    </div>
+</div>
+<!-- end cssload-loader -->
+
+<!-- ================================
+        START HEADER AREA
+================================= -->
+<header class="header-area">
+    <div class="header-top-bar padding-right-100px padding-left-100px">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="header-top-content">
+                        <div class="header-left">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="header-top-content">
+                        <div class="header-right d-flex align-items-center justify-content-end">
+
+                            <div class="header-right-action" style="margin: 9px;">
+                                <div class="nav-btn" *ngIf="name != null">
+                                    <span style="margin:7px">{{name}}</span>
+
+                                    <a [routerLink]="['/profile']">
+                                        <p-avatar icon="pi pi-user" styleClass="mr-2" [style]="{'background-color': '#9c27b0', 'color': '#ffffff'}"></p-avatar>
+                                    </a>
+
+                                </div>
+                            </div>
+                            <div class="header-right-action" *ngIf="email==null">
+                                <a [routerLink]="['/register']" class="theme-btn theme-btn-small theme-btn-transparent mr-1" data-toggle="modal" data-target="#signupPopupForm">Sign Up</a>
+                                <a [routerLink]="['/login']" class="theme-btn theme-btn-small" data-toggle="modal" data-target="#loginPopupForm">Login</a>
+                            </div>
+
+                            <div class="header-right-action" *ngIf="accountName!=null">
+
+                                <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"> </p-toast>
+
+                                <p-toast position="top-center" key="tc"></p-toast>
+                                <p-confirmPopup></p-confirmPopup>
+                                <p-button icon="pi pi-power-off" label="Logout" styleClass="p-button-outlined p-button-help" (click)="logout($event)"> </p-button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-menu-wrapper padding-right-100px padding-left-100px">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="menu-wrapper">
+                        <a href="#" class="down-button"><i class="la la-angle-down"></i></a>
+                        <div class="logo">
+                            <a href="index.html"><img src="../assets/images/logo.png" alt="logo" /></a>
+                            <div class="menu-toggler">
+                                <i class="la la-bars"></i>
+                                <i class="la la-times"></i>
+                            </div>
+                            <!-- end menu-toggler -->
+                        </div>
+                        <!-- end logo -->
+                        <div class="main-menu-content">
+                            <nav>
+                                <ul>
+                                    <li>
+                                        <a [routerLink]="['/flight']">
+											Home
+										</a>
+                                    </li>
+
+                                    <li *ngIf="level==4">
+                                        <a [routerLink]="['/bookchair']">
+											Book a chair
+										</a>
+                                    </li>
+
+                                    <ng-container *ngIf="level===3; else a">
+                                        <li>
+                                            <a href="#">
+												About me
+												<i class="la la-angle-down"></i>
+												<button class="drop-menu-toggler" type="button">
+													<i class="la la-angle-down"></i>
+												</button>
+											</a>
+                                            <ul class="dropdown-menu-item">
+                                                <li><a [routerLink]="['/registrationCar']">Car Registration</a></li>
+                                                <li><a [routerLink]="['/received']">Profile</a></li>
+                                                <li><a [routerLink]="['/completed']">Payment Completed</a></li>
+                                                <li><a [routerLink]="['/myWorkSchedule']">My WorkSchedule</a></li>
+                                                <!-- <li><a [routerLink]="['/booking']">Cart Shipping</a></li> -->
+                                            </ul>
+                                        </li>
+                                    </ng-container>
+
+                                    <ng-template #a> </ng-template>
+                                    <li *ngIf="level == 2">
+                                        <a>
+											Cart <i class="la la-angle-down"></i><button class="drop-menu-toggler" type="button"><i class="la la-angle-down"></i></button>
+										</a>
+                                        <ul class="dropdown-menu-item">
+                                            <li><a [routerLink]="['/list']">Cart Transport</a></li>
+                                            <li><a [routerLink]="['/booking']">Express</a></li>
+                                        </ul>
+                                    </li>
+                                    <li *ngIf="level===4">
+                                        <a href="#">
+											My Account <i class="la la-angle-down"></i>
+											<button class="drop-menu-toggler" type="button"><i class="la la-angle-down"></i></button>
+										</a>
+                                        <ul class="dropdown-menu-item">
+                                            <li><a [routerLink]="['/changPassword']">Change Password</a></li>
+                                            <li><a [routerLink]="['/invoiceOfUser']">My Invoice</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="nav-btn" *ngIf="email != null && level == 4">
+                            <p-button styleClass="p-button-outlined p-button-help" [routerLink]="['/cart']"><i class="pi pi-cart-plus"></i></p-button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ================================
+     END HEADER AREA<
+================================= -->
+
+<!-- ================================
+START HERO-WRAPPER AREA
+================================= -->
+<router-outlet></router-outlet>
+<!-- end hero-wrapper -->
+<!-- ================================
+END HERO-WRAPPER AREA
+================================= -->
+
+<!-- ================================
+START INFO AREA
+================================= -->
+
+<!-- end clientlogo-area -->
+<!-- ================================
+   START CLIENTLOGO AREA
+================================= -->
+
+<!-- ================================
+   START FOOTER AREA
+================================= -->
+
+<!-- end footer-area -->
+<!-- ================================
+   START FOOTER AREA
+================================= -->
+
+<!-- start back-to-top -->
+<div id="back-to-top">
+    <i class="la la-angle-up" title="Go top"></i>
+</div>

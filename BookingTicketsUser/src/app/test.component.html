@@ -1,0 +1,74 @@
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-top: 20px;
+  }
+  
+  .seat-map {
+    display: inline-block;
+    margin-top: 30px;
+  }
+  
+  .row {
+    margin-bottom: 10px;
+  }
+  
+  .seat {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  .occupied {
+    background-color: #ff0000;
+  }
+  
+  </style>
+<div class="seat-map">
+    <div class="row">
+      <div class="seat" data-seat="A1"></div>
+      <div class="seat" data-seat="A2"></div>
+      <div class="seat" data-seat="A3"></div>
+      <div class="seat" data-seat="A4"></div>
+      <div class="seat" data-seat="A5"></div>
+    </div>
+    <div class="row">
+      <div class="seat" data-seat="B1"></div>
+      <div class="seat" data-seat="B2"></div>
+      <div class="seat occupied" data-seat="B3"></div>
+      <div class="seat occupied" data-seat="B4"></div>
+      <div class="seat" data-seat="B5"></div>
+    </div>
+    <div class="row">
+      <div class="seat" data-seat="C1"></div>
+      <div class="seat" data-seat="C2"></div>
+      <div class="seat" data-seat="C3"></div>
+      <div class="seat" data-seat="C4"></div>
+      <div class="seat" data-seat="C5"></div>
+    </div>
+  </div>
+
+  <script>
+    // Lắng nghe sự kiện click trên các ghế ngồi
+    const seats = document.querySelectorAll('.seat');
+    seats.forEach(seat => {
+      seat.addEventListener('click', () => {
+        const seatNumber = seat.dataset.seat; // Lấy thông tin số ghế từ thuộc tính 'data-seat'
+        const isSelected = seat.classList.contains('selected'); // Kiểm tra xem ghế đã được chọn hay chưa
+
+        if (isSelected) {
+          console.log(`Đã bỏ chọn ghế ${seatNumber}`);
+        } else {
+          console.log(`Đã chọn ghế ${seatNumber}`);
+        }
+
+        seat.classList.toggle('selected'); // Thêm hoặc xóa lớp 'selected' khi click vào ghế
+      });
+    });
+  </script>

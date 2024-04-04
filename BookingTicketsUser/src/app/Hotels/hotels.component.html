@@ -1,0 +1,99 @@
+<div class="tab-pane fade active show" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
+    <div class="contact-form-action">
+      <form action="#" class="row align-items-center">
+        <div class="col-lg-3 pr-0">
+          <div class="input-box">
+            <label class="label-text">Destination / Hotel name</label>
+            <div class="form-group">
+              <span class="la la-map-marker form-icon"></span>
+              <input class="form-control" type="text" placeholder="Enter city or property">
+            </div>
+          </div>
+        </div>
+        <!-- end col-lg-3 -->
+        <div class="col-lg-3 pr-0">
+          <div class="input-box">
+            <label class="label-text">Check in</label>
+            <div class="form-group">
+              <span class="la la-calendar form-icon"></span>
+              <input class="date-range form-control" type="text" name="daterange-single">
+            </div>
+          </div>
+        </div>
+        <!-- end col-lg-3 -->
+        <div class="col-lg-3 pr-0">
+          <div class="input-box">
+            <label class="label-text">Check out</label>
+            <div class="form-group">
+              <span class="la la-calendar form-icon"></span>
+              <input class="date-range form-control" type="text" name="daterange-single">
+            </div>
+          </div>
+        </div>
+        <!-- end col-lg-3 -->
+        <div class="col-lg-3">
+          <div class="input-box">
+            <label class="label-text">Guests and Rooms</label>
+            <div class="form-group">
+              <div class="dropdown dropdown-contain gty-container">
+                <a class="dropdown-toggle dropdown-btn" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                  <span class="adult" data-text="Adult" data-text-multi="Adults">0 Adult</span>
+                  -
+                  <span class="children" data-text="Child" data-text-multi="Children">0 Child</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-wrap">
+                  <div class="dropdown-item">
+                    <div class="qty-box d-flex align-items-center justify-content-between">
+                      <label>Rooms</label>
+                      <div class="qtyBtn d-flex align-items-center">
+                        <div class="qtyDec">
+                          <i class="la la-minus"></i>
+                        </div>
+                        <input type="text" name="room_number" value="0" class="qty-input">
+                        <div class="qtyInc">
+                          <i class="la la-plus"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dropdown-item">
+                    <div class="qty-box d-flex align-items-center justify-content-between">
+                      <label>Adults</label>
+                      <div class="qtyBtn d-flex align-items-center">
+                        <div class="qtyDec">
+                          <i class="la la-minus"></i>
+                        </div>
+                        <input type="text" name="adult_number" value="0">
+                        <div class="qtyInc">
+                          <i class="la la-plus"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dropdown-item">
+                    <div class="qty-box d-flex align-items-center justify-content-between">
+                      <label>Children</label>
+                      <div class="qtyBtn d-flex align-items-center">
+                        <div class="qtyDec">
+                          <i class="la la-minus"></i>
+                        </div>
+                        <input type="text" name="child_number" value="0">
+                        <div class="qtyInc">
+                          <i class="la la-plus"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end dropdown -->
+            </div>
+          </div>
+        </div>
+        <!-- end col-lg-3 -->
+      </form>
+    </div>
+    <div class="btn-box">
+      <a href="hotel-search-result.html" class="theme-btn">Search Now</a>
+    </div>
+  </div>

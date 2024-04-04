@@ -1,0 +1,27 @@
+<p-table [value]="lists" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10, 25, 50]">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Car</th>
+            <th>Time</th>
+            <th>Name</th>
+            <th>Chair</th>
+            <th>Date</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-list>
+        <tr>
+            <td> {{list.cars}}</td>
+            <td> {{list.time}}</td>
+            <td *ngIf="list.level == 4"> {{list.nameAcount}}</td>
+            <td *ngIf="list.level == 2">Staff</td>
+            <td> Chair {{list.chairs}}</td>
+            <td> {{list.date}}</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-table>

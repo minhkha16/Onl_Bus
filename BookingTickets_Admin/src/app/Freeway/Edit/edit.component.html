@@ -1,0 +1,43 @@
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Edit Freeway</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <ng-container *ngIf="editForm!=null">
+                        <form [formGroup]="editForm" (ngSubmit)="update()">
+                            <!-- <label for="exampleInputName1">Name</label>
+                            <div class="form-group">
+                                <select class="sele" tabindex="-98" formControlName="name">
+                                    <option value="Mien Bac">Miền Bắc</option>
+                                    <option value="Mien Nam">Miền Nam</option>
+                                    <option value="Mien Trung">Miền Trung</option>
+                                </select>
+                            </div> -->
+                            <label for="exampleInputName1">Price</label>
+                            <div class="form-group ">
+                                <input type="text " pInputText formControlName="price" style="width:100%; color: #404244; font-family: Poppins; " placeholder="Price " />
+                            </div>
+                            <span *ngIf="editForm.get('price').touched" style="color:red">
+                                <div *ngIf="editForm.hasError('required',['price'])" >Price is required</div>
+                            </span>
+                            <label for="exampleInputEmail3">From</label>
+                            <div class="form-group">
+                                <p-dropdown [options]="placeFroms" formControlName="idFrom" optionLabel="name" optionValue="id"></p-dropdown>
+                            </div>
+
+                            <label for="exampleInputEmail3">To</label>
+                            <div class="form-group">
+                                <p-dropdown [options]="placeTos" formControlName="idTo" optionLabel="name" optionValue="id"></p-dropdown>
+                            </div>
+
+                            <input type="submit" value="Edit" class="btn btn-warning">
+                        </form>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

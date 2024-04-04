@@ -1,0 +1,72 @@
+<style>
+    .table-primary:hover {
+        color: white;
+    }
+    
+    a {
+        color: white;
+    }
+    
+    table tr th {
+        color: white;
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">View All Discount</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <ng-container *ngIf="discounts != null">
+                            <table class="table table-hover table-bordered table-contextual">
+                                <thead style="text-align: center;">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Content</th>
+                                        <th>Status</th>
+                                        <th>Price</th>
+                                        <th>DateEnd</th>
+                                        <th>Option</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="text-align: center;">
+                                    <ng-container *ngFor="let dis of discounts">
+                                        <tr class="table-primary">
+                                            <td class="py-1">{{dis.id}}</td>
+                                            <td>{{dis.content}}</td>
+                                            <td>
+                                                <div>
+                                                    <label class="badge badge-danger">{{dis.status}}</label>
+                                                </div>
+                                            </td>
+                                            <td>{{dis.price}}</td>
+                                            <td>{{dis.dateEnd}}</td>
+                                            <td>
+                                                <a>
+                                                    <!-- <p-button styleClass="p-button-danger p-button-text" icon="pi pi-trash" (click)="delete(dis.id)"></p-button> -->
+                                                </a>
+                                                <!-- <a [routerLink]="['/editDis',{id: dis.id}]">
+                                                    <p-button styleClass="p-button-danger p-button-text" icon="pi pi-calendar-minus"></p-button>
+                                                </a> -->
+                                            </td>
+                                        </tr>
+                                    </ng-container>
+                                </tbody>
+                            </table>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

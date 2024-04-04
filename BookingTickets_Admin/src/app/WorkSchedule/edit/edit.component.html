@@ -1,0 +1,44 @@
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Creation WorkSchedule</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body" *ngIf="editWorkForm!=null">
+                    <form [formGroup]="editWorkForm" (ngSubmit)="update()">
+
+                        <label for=" exampleInputName1 ">FreeWay</label>
+                        <div class="form-group ">
+                            <p-dropdown formControlName="idFreeWay" [options]="freeways" optionLabel="name" optionValue="id" [style]="{'width':'100%'}"></p-dropdown>
+                        </div>
+
+                        <label for=" exampleInputName1 ">Car</label>
+                        <div class="form-group ">
+                            <p-dropdown formControlName="idCar" [options]="cars" optionLabel="licensePlates" optionValue="licensePlates" [style]="{'width':'100%'}"></p-dropdown>
+                        </div>
+
+                        <label for="exampleInputName1">Account</label>
+                        <div class="form-group ">
+                            <p-dropdown formControlName="idAccount" [options]="accounts" optionLabel="fullname" optionValue="id" [style]="{'width':'100%'}"></p-dropdown>
+                        </div>
+
+                        <label for=" exampleInputName1 ">Time Line</label>
+                        <div class="form-group">
+                            <p-dropdown formControlName="idTimeLine" [options]="timelines" optionLabel="line" optionValue="id" [style]="{'width':'100%'}"></p-dropdown>
+                        </div>
+
+                        <label for=" exampleInputName1 ">Work Day</label>
+                        <div class="form-group row">
+                            <div class="col-sm-9">
+                                <p-calendar [showIcon]="true" formControlName="workDay" [style]="{'width':'100%'}" dateFormat="dd-mm-yy"></p-calendar>
+                            </div>
+                        </div>
+
+                        <button type="submit " class="btn btn-primary mr-2 ">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

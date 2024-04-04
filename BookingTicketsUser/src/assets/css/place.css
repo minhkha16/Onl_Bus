@@ -1,0 +1,16 @@
+*,*::after,*:before{
+    box-sizing: border-box;
+}
+/* body{
+    font-family: arial;
+    font-size: 16px;
+    margin:0;
+    background: linear-gradient(to right top, #0ecae8,#0ee894);
+    min-height: 100vh;
+} */
+.search-box input{
+    position: absolute;
+}
+.search-box input:focus{
+    outline: none;
+}

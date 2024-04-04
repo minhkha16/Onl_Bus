@@ -1,0 +1,219 @@
+<style>
+    .big {
+        width: 300px;
+        height: auto;
+        background-color: #909294;
+        margin: 20px auto;
+        border-radius: 20px;
+        position: relative;
+    }
+    
+    input {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .flex {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    .chairCar {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .n {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background-color: red; */
+    }
+    
+    .car {
+        width: 600px;
+        height: 300px;
+        background-color: #cccc;
+        position: relative;
+        display: flex;
+        margin: auto;
+        align-items: center;
+        border-radius: 20px;
+    }
+    
+    .wheel.left {
+        left: 35px;
+    }
+    
+    .wheel.right {
+        right: 35px;
+    }
+    
+    .seat {
+        overflow: hidden;
+        width: 50px;
+        height: 30px;
+        display: block;
+        margin: 2px;
+        border-radius: 50%;
+    }
+    
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        box-sizing: border-box;
+        overflow: hidden;
+        border-radius: 5%;
+    }
+    
+    .row>.seat {
+        width: 20%;
+        box-sizing: border-box;
+    }
+    
+    .styled-select {
+        border-radius: 2px;
+        width: 10%;
+    }
+    
+    .option-edu {
+        margin-left: 50px;
+    }
+</style>
+<section class="hero-wrapper">
+    <div class="hero-box hero-bg">
+        <span class="line-bg line-bg1"></span>
+        <span class="line-bg line-bg2"></span>
+        <span class="line-bg line-bg3"></span>
+        <span class="line-bg line-bg4"></span>
+        <span class="line-bg line-bg5"></span>
+        <span class="line-bg line-bg6"></span>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto responsive--column-l">
+                    <div class="hero-content pb-5">
+                        <div class="section-heading" style="text-align:center; margin-top:10px">
+                            <h4 style="color:white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                                Book cheap car tickets - Compliance 150% if the garage does not hold tickets
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="section-tab text-center pl-4">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <!-- <ng-container *ngFor="let time of alltimes">
+                    <li class="nav-item">
+                        <ng-container *ngIf="time.id==1">
+                            <a class="nav-link d-flex align-items-center active" id="tab" data-toggle="tab" href="#{{time.code}}" role="tab" aria-controls="time" aria-selected="true" (click)="chooseTime(time.id)">
+                                <i class="la la-bus mr-1"></i>{{time.line}} </a>
+                        </ng-container>
+                        <ng-container *ngIf="time.id!=1">
+                            <a class="nav-link d-flex align-items-center" id="tab" data-toggle="tab" href="#{{time.code}}" role="tab" aria-controls="time" aria-selected="true" (click)="chooseTime(time.id)">
+                                <i class="la la-bus mr-1"></i>{{time.line}} </a>
+                        </ng-container>
+                       
+                      </li>
+                </ng-container> -->
+                        </ul>
+                    </div>
+
+                    <div class="tab-content search-fields-container" id="myTabContent">
+                        <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
+                            <div class="section-tab section-tab-2 pb-3">
+                                <ul class="nav nav-tabs" id="myTab3" role="tablist">
+                                    <!-- <ng-container *ngFor="let cate of allcatecars">
+                      <li class="nav-item">
+                        <ng-container *ngIf="cate.id==1">
+                          <a class="nav-link active" id="one-way-tab" data-toggle="tab" href="#one-way" role="tab" aria-controls="one-way" aria-selected="true" (click)="chooseCate(cate.id)">
+                            {{cate.name}}
+                           </a>
+                        </ng-container>
+                        <ng-container *ngIf="cate.id!=1">
+                          <a class="nav-link" id="one-way-tab" data-toggle="tab" href="#one-way" role="tab" aria-controls="one-way" aria-selected="true" (click)="chooseCate(cate.id)">
+                            {{cate.name}}
+                           </a>
+                        </ng-container>
+                      </li>
+                    </ng-container> -->
+                                </ul>
+                            </div>
+                            <div class="tab-content" id="myTabContent3">
+                                <p-toast></p-toast>
+
+                                <!-- <h1>{{this.countdown}}</h1> -->
+
+                                <!-- <div style="display: flex; justify-content: center;" class="a">
+                        <ng-container *ngFor="let c of cars">
+                            <p-button 
+                            label="{{c.name}}" 
+                            styleClass="p-button-raised p-button-text p-button-help"
+                            (click)="getIdCar(c.licensePlates)"
+                            ></p-button>
+                        </ng-container>
+                    </div>
+                    <br> -->
+
+                                <!-- <div style="display: flex; justify-content: center;" class="a">
+                        <ng-container *ngIf="idCar!=null">
+                            <ng-container *ngFor="let t of timelines">
+                                <p-button 
+                                label="{{t.line}}" 
+                                styleClass="p-button-raised p-button-text p-button-help"
+                                (click)="getIdTimeLine(t.id)"
+                                ></p-button>
+                            </ng-container>
+                        </ng-container>
+                    </div>
+                    <br> -->
+                                <div style="display: flex;flex-direction: row; align-items: center;justify-content: center;">
+                                    <div class="car">
+                                        <div class="wheel left"></div>
+                                        <div class="wheel right"></div>
+
+                                        <div class="row">
+                                            <ng-container *ngFor="let c of chairs">
+                                                <!-- {{c.idChair}} -->
+                                                <input type="checkbox" [disabled]="c.status!=true" value="{{c.idChair}}" (change)="book($event)" class="seat" />
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="option-edu">
+                                    Subject
+                                    <select class="styled-select" (change)="chooseSubject($event)">
+                                    <option value="default">Optiton</option>
+                                    <option value="Elder">Elder</option>
+                                    <option value="Adult">Adult</option>
+                                    <option value="Child">Child</option>
+                                  </select>
+                                </div>
+
+                                <br>
+                                <div style="display: flex;justify-content: center;">
+                                    <ng-container *ngIf="qtyTheChair!=0">
+                                        <p *ngIf="qtyTheChair >= 0;else no">Others {{qtyTheChair}} available</p>
+
+                                        <ng-template #no>
+                                            The Car isn't the chair available. Please choose a type of car.
+                                        </ng-template>
+                                    </ng-container>
+                                </div>
+
+                                <p-button [style]="{'display': 'flex', 'margin' : 'auto','width' : '300px'}" label="Get Tickets" styleClass="p-button-raised p-button-text p-button-help" (click)="get()"></p-button>
+                                <br />
+                                <br />
+                            </div>
+                        </div>
+                        <!-- end tab-pane -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-block"></div>

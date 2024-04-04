@@ -1,0 +1,211 @@
+<section class="hero-wrapper">
+    <div class="hero-box hero-bg">
+        <span class="line-bg line-bg1"></span>
+        <span class="line-bg line-bg2"></span>
+        <span class="line-bg line-bg3"></span>
+        <span class="line-bg line-bg4"></span>
+        <span class="line-bg line-bg5"></span>
+        <span class="line-bg line-bg6"></span>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto responsive--column-l">
+                    <div class="hero-content pb-5">
+                        <div class="section-heading" style="text-align:center; margin-top:10px">
+                            <h4 style="color:white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                                Book cheap car tickets - Compliance 150% if the garage does not hold tickets
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- <div class="section-tab text-center pl-4">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <ng-container *ngFor="let time of alltimes">
+                                <li class="nav-item">
+                                    <ng-container *ngIf="time.id==1">
+                                        <a class="nav-link d-flex align-items-center active" id="tab" data-toggle="tab" href="#{{time.code}}" role="tab" aria-controls="time" aria-selected="true" (click)="chooseTime(time.id)">
+                                            <i class="la la-bus mr-1"></i>{{time.line}}
+                                        </a>
+                                    </ng-container>
+                                    <ng-container *ngIf="time.id!=1">
+                                        <a class="nav-link d-flex align-items-center" id="tab" data-toggle="tab" href="#{{time.code}}" role="tab" aria-controls="time" aria-selected="true" (click)="chooseTime(time.id)">
+                                            <i class="la la-bus mr-1"></i>{{time.line}}
+                                        </a>
+                                    </ng-container>
+                                </li>
+                            </ng-container>
+                        </ul>
+                    </div> -->
+                    <div class="col-lg-12">
+                        <div class="flight-filter-tab text-center">
+                            <div class="section-tab section-tab-3">
+                                <ul id="myTab4" role="tablist" class="nav nav-tabs justify-content-center">
+                                    <ng-container *ngFor="let time of alltimes">
+                                        <li class="nav-item ng-star-inserted">
+                                            <ng-container *ngIf="time.id==1">
+                                                <a class="nav-link d-flex align-items-center active" id="tab" data-toggle="tab" href="#{{time.code}}" role="tab" aria-controls="time" aria-selected="true" (click)="chooseTime(time.id)">
+                                                    <i class="la la-bus mr-1"></i>{{time.line}}
+
+                                                </a>
+                                            </ng-container>
+                                            <ng-container *ngIf="time.id!=1">
+                                                <a class="nav-link d-flex align-items-center" id="tab" data-toggle="tab" href="#{{time.code}}" role="tab" aria-controls="time" aria-selected="true" (click)="chooseTime(time.id)">
+                                                    <i class="la la-bus mr-1"></i>{{time.line}}
+                                                </a>
+
+                                            </ng-container>
+                                        </li>
+                                    </ng-container>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content search-fields-container" id="myTabContent">
+                        <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
+                            <div class="section-tab section-tab-2 pb-3">
+                                <ul class="nav nav-tabs" id="myTab3" role="tablist">
+                                    <ng-container *ngFor="let cate of allcatecars">
+                                        <li class="nav-item">
+                                            <ng-container *ngIf="cate.id==1">
+                                                <a class="nav-link active" id="one-way-tab" data-toggle="tab" href="#one-way" role="tab" aria-controls="one-way" aria-selected="true" (click)="chooseCate(cate.id)">
+													                          {{cate.name}}
+                                                </a>
+                                            </ng-container>
+                                            <ng-container *ngIf="cate.id!=1">
+                                                <a class="nav-link" id="one-way-tab" data-toggle="tab" href="#one-way" role="tab" aria-controls="one-way" aria-selected="true" (click)="chooseCate(cate.id)">
+													                        {{cate.name}}
+                                                </a>
+                                            </ng-container>
+                                        </li>
+                                    </ng-container>
+                                </ul>
+                            </div>
+                            <div class="tab-content" id="myTabContent3">
+                                <ng-container *ngFor="let time of alltimes">
+                                    <ng-container *ngIf="time.id==1">
+                                        <a [routerLink]="['/flight']">
+                                            <h4 style="color:rgb(50, 50, 227)">Passenger car tickets </h4>
+                                        </a>
+                                        <h4 style="text-align:center">Bus in {{time.line}}</h4>
+                                        <div class="popular-round-trip-wrap padding-top-40px">
+                                            <div class="tab-content" id="myTabContent4">
+                                                <div class="tab-pane fade show active" id="new-york" role="tabpanel" aria-labelledby="new-york-tab">
+                                                    <div class="row">
+                                                        <ng-container *ngFor="let car of allcars">
+                                                            <div class="col-lg-4 responsive-column">
+                                                                <div class="deal-card">
+                                                                    <div class="deal-title d-flex align-items-center">
+                                                                        <span class="menu-icon" style="color:red; margin: 4px">
+                                                                        <i class="pi pi-car"></i>
+                                                                      </span>
+                                                                        <h3 class="deal__title">
+                                                                            <a [routerLink]="['/bookchair',{id_time:time.id,id_car:car.licensePlates,datebook:departing}]" class="d-flex align-items-center">
+                                                                                <h3>{{car.name}}</h3>
+                                                                            </a>
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="deal-action-box d-flex align-items-center justify-content-between">
+                                                                        <div class="price-box d-flex align-items-center"><span class="price__from mr-1">{{car.category}}</span><span class="price__num">{{car.quantity_chair}} chỗ</span></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </ng-container>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <!-- end tab-pane -->
+                        <ng-container *ngFor="let time of alltimes">
+                            <div class="tab-pane fade" id="{{time.code}}" role="tabpanel" aria-labelledby="a12-tab">
+                                <div class="section-tab section-tab-2 pb-3">
+                                    <ul class="nav nav-tabs" id="myTab3" role="tablist">
+                                        <ng-container *ngFor="let cate of allcatecars">
+                                            <li class="nav-item">
+                                                <ng-container *ngIf="cate.id==1">
+                                                    <a class="nav-link active" id="one-way-tab" data-toggle="tab" href="#one-way" role="tab" aria-controls="one-way" aria-selected="true" (click)="chooseCate(cate.id)">
+														{{cate.name}}
+													</a>
+                                                </ng-container>
+                                                <ng-container *ngIf="cate.id!=1">
+                                                    <a class="nav-link" id="one-way-tab" data-toggle="tab" href="#one-way" role="tab" aria-controls="one-way" aria-selected="true" (click)="chooseCate(cate.id)">
+														{{cate.name}}
+													</a>
+                                                </ng-container>
+                                            </li>
+                                        </ng-container>
+                                    </ul>
+                                </div>
+                                <a [routerLink]="['/flight']">
+                                    <h4 style="color:rgb(50, 50, 227)">Passenger car tickets </h4>
+                                </a>
+                                <h5 style="text-align:center">Bus in {{time.line}}</h5>
+                                <div class="popular-round-trip-wrap padding-top-40px">
+                                    <div class="tab-content" id="myTabContent4">
+                                        <div class="tab-pane fade show active" id="new-york" role="tabpanel" aria-labelledby="new-york-tab">
+                                            <div class="row">
+                                                <ng-container *ngIf="allcars.length>0; else a">
+                                                    <ng-container *ngFor="let car of allcars">
+                                                        <!-- <ng-container >
+                              <b style="text-align:center; color:red ; margin-left: 25%; ">
+                                Hiện không có chuyến xe cho tuyến đường vào ngày này.
+                              </b>
+                           </ng-container> -->
+                                                        <div class="col-lg-4 responsive-column">
+                                                            <div class="deal-card">
+                                                                <div class="deal-title d-flex align-items-center">
+                                                                    <span class="menu-icon" style="color:red; margin: 4px">
+                                                                      <i class="pi pi-car"></i>
+                                                                    </span>
+                                                                    <h3 class="deal__title">
+                                                                        <a [routerLink]="['/bookchair',{id_time:car.time,id_car:car.licensePlates,datebook:car.departing}]" class="d-flex align-items-center">
+                                                                            <h3>{{ car.name}}</h3>
+                                                                        </a>
+                                                                    </h3>
+                                                                </div>
+                                                                <!-- <p class="deal__meta"></p> -->
+                                                                <div class="deal-action-box d-flex align-items-center justify-content-between">
+                                                                    <div class="price-box d-flex align-items-center"><span class="price__from mr-1">{{car.category}}</span><span class="price__num">/ {{car.quantity_chair}} chair</span></div>
+                                                                    <!-- <a href="flight-single.html" class="btn-text"
+                                          >See details<i class="la la-angle-right"></i
+                                      ></a> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ng-container>
+                                                </ng-container>
+                                                <ng-template #a>
+                                                    <h4 style="text-align: center;display: flex;margin:auto;color:red">There are currently no trips available at this time sloti</h4>
+                                                </ng-template>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-block"></div>
+<section class="round-trip-flight section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading text-center">
+                    <h2 class="sec__title line-height-55">
+                        Most Popular Round-trip
+                    </h2>
+                </div>
+                <!-- end section-heading -->
+            </div>
+            <!-- end col-lg-12 -->
+        </div>
+    </div>
+    <!-- end container -->
+</section>

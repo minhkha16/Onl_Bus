@@ -1,0 +1,31 @@
+<p-table [value]="shippings" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10, 25, 50]">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ID</th>
+            <th>PakAge</th>
+            <th>Weight</th>
+            <th>Price</th>
+            <th>Options</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-ship>
+        <tr>
+            <td> {{ship.id}}</td>
+            <td> {{ship.pakage}}</td>
+            <td> {{ship.weight}}</td>
+            <td> {{ship.price}}</td>
+            <td>
+                <p-button styleClass="p-button-danger p-button-text" icon="pi pi-trash" (click)="delete(ship.id)"></p-button>
+                <a [routerLink]="['/editShipping',{id:ship.id}]">
+                    <p-button styleClass="p-button-danger p-button-text" icon="pi pi-user-edit"></p-button>
+                </a>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-table>

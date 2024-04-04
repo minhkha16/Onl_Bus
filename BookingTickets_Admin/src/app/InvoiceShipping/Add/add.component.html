@@ -1,0 +1,39 @@
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Creation Discount</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="shippingForm" (ngSubmit)="save()">
+                        <label for=" exampleInputName1 ">Pakage</label>
+                        <div class="form-group ">
+                            <input type="text " pInputText formControlName="pakAge" style="width:100%; color: #404244; font-family: Poppins; " placeholder="Your Pakage " />
+                        </div>
+                        <span *ngIf="shippingForm.get('pakAge').touched" style="color:red">
+                            <div *ngIf="shippingForm.hasError('required',['pakAge'])" >Pakage is required</div>
+                        </span>
+
+                        <label for=" exampleInputName1 ">Weight</label>
+                        <div class="form-group ">
+                            <input type="text " pInputText formControlName="weight" style="width:100%; color: #404244; font-family: Poppins; " placeholder="Your Weight " />
+                        </div>
+                        <span *ngIf="shippingForm.get('weight').touched" style="color:red">
+                            <div *ngIf="shippingForm.hasError('required',['weight'])" >Weight is required</div>
+                        </span>
+
+                        <label for=" exampleInputName1 ">Price</label>
+                        <div class="form-group ">
+                            <input type="text " pInputText formControlName="price" style="width:100%; color: #404244; font-family: Poppins; " placeholder="Your Price " />
+                        </div>
+                        <span *ngIf="shippingForm.get('price').touched" style="color:red">
+                            <div *ngIf="shippingForm.hasError('required',['price'])" >Price is required</div>
+                        </span>
+                        <button type="submit " class="btn btn-primary mr-2 ">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

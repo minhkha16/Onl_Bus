@@ -1,0 +1,59 @@
+<div class="card-body px-5 py-5">
+    <h3 class="card-title text-left mb-3">Register</h3>
+    <form [formGroup]="register" (ngSubmit)="save()">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" formControlName="fullname" class="form-control p_input">
+            <span *ngIf="register.get('fullname').touched" style="color:red">
+                <div *ngIf="register.hasError('required',['fullname'])" >Username is required</div>
+            </span>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" formControlName="email" class="form-control p_input">
+            <label for="" *ngIf="register.get('email').touched">
+                <div *ngIf="register.hasError('required',['email'])" style="color : red">
+                    Current Password is required.
+                </div>
+                <div *ngIf="register.hasError('pattern',['email'])" style="color : red">
+                    Doesn't format email. Example : abc@gmail.com
+                </div>
+                </label>
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <input type="address" formControlName="address" class="form-control p_input">
+            <span *ngIf="register.get('address').touched" style="color:red">
+                <div *ngIf="register.hasError('required',['address'])" >Address is required</div>
+            </span>
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="address" formControlName="phone" class="form-control p_input">
+            <span *ngIf="register.get('phone').touched" style="color:red">
+                <div *ngIf="register.hasError('required',['phone'])" >Phone is required</div>
+            </span>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" formControlName="password" class="form-control p_input">
+            <span *ngIf="register.get('password').touched" style="color:red">
+                <div *ngIf="register.hasError('required',['password'])" >Password is required</div>
+            </span>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="col-sm-3 col-form-label">Birth Day</label>
+                <div class="form-group row">
+                    <div class="col-sm-9">
+                        <p-calendar [showIcon]="true" formControlName="dob"></p-calendar>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-block enter-btn">Sign Up</button>
+        </div>
+        <p class="sign-up text-center">Already have an Account?<a [routerLink]="['/background/login']"> Sign In</a></p>
+    </form>
+</div>

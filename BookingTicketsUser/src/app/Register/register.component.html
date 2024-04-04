@@ -1,0 +1,168 @@
+<div class="modal-popup">
+    <div
+      class="modal fade"
+      id="signupPopupForm"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div>
+              <h5 class="modal-title title" id="exampleModalLongTitle">
+                Sign Up
+              </h5>
+              <p class="font-size-14">Hello! Welcome Create a New Account</p>
+            </div>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true" class="la la-close"></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="contact-form-action">
+              <form method="post" [formGroup]="formCreation">
+                <!-- end input-box -->
+                <div class="input-box">
+                  <label class="label-text">Email Address</label>
+                  <div class="form-group">
+                    <span class="la la-envelope form-icon"></span>
+                    <input type="email" pInputText formControlName="email" class="form-control"/>
+                  </div>
+                    <label for="" *ngIf="formCreation.get('email').touched">
+
+                    <div *ngIf="formCreation.hasError('required',['email'])" style="color : red">
+                        Current Password is required.
+                    </div>
+
+                    <div *ngIf="formCreation.hasError('pattern',['email'])" style="color : red">
+                      Doesn't format email. Example : abc@gmail.com
+                    </div>
+                    
+                </label>
+                </div>
+                <!-- end input-box -->
+                <div class="input-box">
+                  <label class="label-text">Password</label>
+                  <div class="form-group">
+                    <span class="la la-lock form-icon"></span>
+                    <input type="password" pInputText formControlName="password" class="form-control"/>
+                  </div>
+                </div>
+                <span *ngIf="formCreation.get('password').touched" style="color:red">
+                    <div *ngIf="formCreation.hasError('required',['password'])" >Password is required</div>
+                    <div *ngIf="formCreation.hasError('pattern',['password'])" >Not correst format</div>
+                </span>
+                <!-- end input-box -->
+                <div class="input-box">
+                  <label class="label-text">Repeat Password</label>
+                  <div class="form-group">
+                    <span class="la la-lock form-icon"></span>
+                    <input type="password" pInputText formControlName="confirm" class="form-control"/>
+                  </div>
+                </div>
+                <!-- //fullname -->
+                <div class="input-box">
+                  <label class="label-text">Full name</label>
+                  <div class="form-group">
+                    <span class="la la-lock form-icon"></span>
+                    <input type="text" pInputText formControlName="fullName" placeholder="Full name" class="form-control"/>
+                  </div>
+                </div>
+                <span *ngIf="formCreation.get('fullName').touched" style="color:red">
+                    <div *ngIf="formCreation.hasError('required',['fullName'])" >FullName is required</div>
+                    <div *ngIf="formCreation.hasError('minlength',['fullName'])" >
+                      Must have at least 5 characters.</div>
+                    <div *ngIf="formCreation.hasError('maxlength',['fullName'])" >
+                      Must be less than 20 characters.
+                    </div>
+                  </span>
+                <div class="input-box">
+                  <label class="label-text">Address</label>
+                  <div class="form-group">
+                    <span class="la la-lock form-icon"></span>
+                    <input type="text" pInputText formControlName="address" placeholder="Your address" class="form-control"/>
+                  </div>
+                </div>
+                <span *ngIf="formCreation.get('address').touched" style="color:red">
+                  <div *ngIf="formCreation.hasError('required',['address'])" >Address is required.</div>
+                </span>
+
+                <div class="input-box">
+                  <label class="label-text">Date Of Birth</label>
+                  <div class="form-group">
+                    <p-calendar formControlName="doB" dateFormat="dd/mm/yy" [style]="{'width':'100%'}"></p-calendar>
+                  </div>
+                </div>
+                <span *ngIf="formCreation.get('doB').touched" style="color:red">
+                  <div *ngIf="formCreation.hasError('required',['doB'])" >Please choose your birthday.</div>
+                </span>
+
+                <div class="input-box">
+                  <label class="label-text">Phone</label>
+                  <div class="form-group">
+                    <span class="la la-lock form-icon"></span>
+                    <input type="text" pInputText formControlName="phone" placeholder="Your Phone" class="form-control"/>
+                  </div>
+                </div>
+                <span *ngIf="formCreation.get('phone').touched" style="color:red">
+                  <div *ngIf="formCreation.hasError('required',['phone'])" >Phone is required.</div>
+                  <div *ngIf="formCreation.hasError('minlength',['phone'])" >
+                    must have at least 8 numbers.
+                  </div>
+                  <div *ngIf="formCreation.hasError('maxlength',['phone'])" >
+                    15 numbers at most.
+                  </div>
+                </span>
+                <!-- end input-box -->
+                <div class="btn-box pt-3 pb-4">
+                  <!-- <button type="button" >
+                    
+                  </button> -->
+                  <p-toast position="top-center" key="tc"></p-toast>
+
+                  <p-toast></p-toast>
+                  <p-button 
+                  [disabled]="formCreation.invalid"
+                  label="Register Account" 
+                  styleClass="p-button-raised p-button-text p-button-help theme-btn w-100" (click)="creation()">
+                </p-button>
+                </div>
+                <!-- <div class="action-box text-center">
+                  <p class="font-size-14">Or Sign up Using</p>
+                  <ul class="social-profile py-3">
+                    <li>
+                      <a href="#" class="bg-5 text-white"
+                        ><i class="lab la-facebook-f"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" class="bg-6 text-white"
+                        ><i class="lab la-twitter"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" class="bg-7 text-white"
+                        ><i class="lab la-instagram"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" class="bg-5 text-white"
+                        ><i class="lab la-linkedin-in"></i
+                      ></a>
+                    </li>
+                  </ul>
+                </div> -->
+              </form>
+            </div>
+            <!-- end contact-form-action -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

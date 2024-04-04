@@ -1,0 +1,37 @@
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Creation Car</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body" *ngIf="editCarForm!=null">
+                    <form [formGroup]="editCarForm" (ngSubmit)="update()">
+                        <label for=" exampleInputName1 ">NameCar</label>
+                        <div class="form-group ">
+                            <input type="text " pInputText formControlName="nameCar" style="width:100%; color: #404244; font-family: Poppins; " placeholder="Name " />
+                        </div>
+
+                        <label for=" exampleInputName1 ">Category</label>
+                        <div class="form-group ">
+                            <ng-container *ngIf="cates != null ">
+                                <p-dropdown formControlName="idCategory" [options]="cates" optionLabel="name" optionValue="id"></p-dropdown>
+                            </ng-container>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="col-sm-3 col-form-label">RegistrationDate</label>
+                                <div class="form-group row">
+                                    <div class="col-sm-9">
+                                        <p-calendar [showIcon]="true" formControlName="registrationDate" dateFormat="dd-mm-yy"></p-calendar>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit " class="btn btn-primary mr-2 ">Edit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

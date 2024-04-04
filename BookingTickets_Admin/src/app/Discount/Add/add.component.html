@@ -1,0 +1,45 @@
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Creation Discount</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="discountFrom" (ngSubmit)="save()">
+                        <label for=" exampleInputName1 ">Content</label>
+                        <div class="form-group ">
+                            <input type="text " pInputText formControlName="content" style="width:100%; color: #404244; font-family: Poppins; " placeholder="Your Content " />
+                        </div>
+                        <span *ngIf="discountFrom.get('content').touched" style="color:red">
+                            <div *ngIf="discountFrom.hasError('required',['content'])" >Content is required</div>
+                        </span>
+
+                        <label for=" exampleInputName1 ">Price</label>
+                        <div class="form-group ">
+                            <input type="text " pInputText formControlName="price" style="width:100%; color: #404244; font-family: Poppins; " placeholder="Your Weight " />
+                        </div>
+                        <span *ngIf="discountFrom.get('price').touched" style="color:red">
+                            <div *ngIf="discountFrom.hasError('required',['price'])" >Price is required</div>
+                        </span>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="col-sm-3 col-form-label"> Date End</label>
+                                <div class="form-group row">
+                                    <div class="col-sm-9">
+                                        <p-calendar [showIcon]="true" formControlName="dateEnd"></p-calendar>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span *ngIf="discountFrom.get('dateEnd').touched" style="color:red">
+                            <div *ngIf="discountFrom.hasError('required',['dateEnd'])" >Date End is required</div>
+                        </span>
+                        <button type="submit " class="btn btn-primary mr-2 ">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

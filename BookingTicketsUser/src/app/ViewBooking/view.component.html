@@ -1,0 +1,97 @@
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        color: #333;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        text-align: left;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        margin: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    
+    table th {
+        background-color: #ff9800;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    table tr:nth-child(even) td {
+        background-color: #f2f2f2;
+    }
+    
+    table tr:hover td {
+        background-color: #f3e6ce;
+    }
+    
+    table td {
+        background-color: #fff;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        font-weight: bold;
+    }
+</style>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title"></h4>
+        <div class="table-responsive">
+            <ng-container *ngIf="shippings != null">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center"> DeliveryName </th>
+                            <th style="text-align:center"> DeliveryPhone </th>
+                            <th style="text-align:center"> DeliveryAddress </th>
+                            <th style="text-align:center"> RecipientName </th>
+                            <th style="text-align:center"> RecipientPhone </th>
+                            <th style="text-align:center"> RecipientAddress </th>
+                            <th style="text-align:center"> Payment </th>
+                            <th style="text-align:center"> Status</th>
+                            <th style="text-align:center"> Total </th>
+                            <th style="text-align:center"> Option </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let ac of shippings">
+                            <td style="text-align:center"> {{ac.deliveryName}}</td>
+                            <td style="text-align:center"> {{ac.deliveryPhone}}</td>
+                            <td style="text-align:center"> {{ac.deliveryAddress}}</td>
+                            <td style="text-align:center"> {{ac.recipientName}}</td>
+                            <td style="text-align:center"> {{ac.recipientPhone}}</td>
+                            <td style="text-align:center"> {{ac.recipientAddress}}</td>
+                            <td style="text-align:center"> {{ac.payment}}</td>
+                            <td style="text-align:center"> {{ac.status? "Paid" : "UnPaid" }}</td>
+                            <td style="text-align:center"> ${{ac.total}}</td>
+                            <td style="text-align:center">
+                                <a>
+                                    <p-button styleClass="p-button-danger p-button-text" icon="pi pi-trash" (click)="delete(ac.id)"></p-button>
+                                </a>
+                                <a *ngIf="ac.status == false && ac.payment == 'Cash'">
+                                    <p-button styleClass="p-button-warning p-button-text " icon="pi pi-id-card" (click)="buy(ac.id) "></p-button>
+                                </a>
+                                <a *ngIf="ac.status == false && ac.payment == 'Visa'">
+                                    <p-button styleClass="p-button-warning p-button-text " icon="pi pi-paypal " (click)="sum(ac.id) "></p-button>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <!-- <th colspan="10 " style="text-align:right ">SubTotal: <span>{{ac.total}}</span></th> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </ng-container>
+            <div class="card-img pb-4 " *ngIf="prices != null && payments == 'Visa'" style="display: flex;justify-content: end; ">
+                <ngx-paypal [config]="payPalConfig "></ngx-paypal>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<p-table [value]="cars" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10, 25, 50]">
+    <ng-template pTemplate="header">
+        <tr>
+            <th> ID </th>
+            <th> LicensePlates </th>
+            <th> Name Car </th>
+            <th> RegistrationDate </th>
+            <th> Category </th>
+            <th> Option </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-car>
+        <tr>
+            <td> {{car.idCategory}} </td>
+            <td>{{car.licensePlates}}</td>
+            <td> {{car.nameCar}}</td>
+            <td> {{car.registrationDate}}</td>
+            <td> {{car.nameCategory}}</td>
+            <td>
+                <a [routerLink]="['/editcar',{id:car.licensePlates}]">
+                    <p-button styleClass="p-button-danger p-button-text" icon="pi pi-user-edit"></p-button>
+                </a>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-table>

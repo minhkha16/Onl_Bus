@@ -1,0 +1,38 @@
+<p-table [value]="accs" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10, 25, 50]">
+    <ng-template pTemplate="header">
+        <tr>
+            <th> Name </th>
+            <th> Birth Day </th>
+            <th> Email </th>
+            <th> Level </th>
+            <th> Address </th>
+            <th> Phone </th>
+            <th> Orther </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-ac>
+        <tr>
+            <td>{{ac.fullname}}</td>
+            <td> {{ac.dob}}</td>
+            <td> {{ac.email}}</td>
+
+            <td *ngIf="ac.level == 3"> Drive</td>
+            <td *ngIf="ac.level == 2"> Staff</td>
+            <td *ngIf="ac.level == 4"> Customer</td>
+            <td> {{ac.address}}</td>
+            <td> {{ac.phone}}</td>
+            <td>
+                <a [routerLink]="['/editaccount',{id:ac.id}]" *ngIf="ac.level == 3 || ac.level == 2">
+                    <p-button styleClass="p-button-danger p-button-text" icon="pi pi-user-edit"></p-button>
+                </a>
+            </td>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-table>

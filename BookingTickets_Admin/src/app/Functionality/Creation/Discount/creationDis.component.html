@@ -1,0 +1,55 @@
+<div class="content-wrapper">
+	<div class="page-header">
+		<h3 class="page-title">Creation Discount</h3>
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="#">Forms</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Form elements</li>
+			</ol>
+		</nav>
+	</div>
+	<div class="row">
+		<div class="col-12 grid-margin stretch-card">
+			<div class="card">
+				<div class="card-body">
+					<h4 class="card-title">Basic form elements</h4>
+					<p class="card-description">Basic form elements</p>
+					<form [formGroup]="discountForm" (ngSubmit)="save()">
+						<label for="exampleInputName1">Content</label>
+						<div class="form-group">
+							<input type="text" pInputText formControlName="content"  style="width:100%; color: #404244; font-family: Poppins;" placeholder="Content" />
+						</div>
+						<label for="exampleInputEmail3">Price</label>
+						<div class="form-group">
+							<input type="text" pInputText formControlName="price"style="width:100%; color: #404244; font-family: Poppins;" placeholder="Price" />
+						</div>
+
+						<div class="col-md-6">
+                            <label for="col-sm-3 col-form-label">Status</label>
+                            <div class="form-group row">
+                                <div class="col-sm-9">
+                                    <p-checkbox [binary]="true" formControlName="status" inputId="binary"></p-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                        
+						<div class="row">
+							<div class="col-md-6">
+								<label for="col-sm-3 col-form-label">DateEnd</label>
+								<div class="form-group row">
+									<div class="col-sm-9">
+										<p-calendar [showIcon]="true" formControlName="dateEnd"></p-calendar>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						
+						<!-- <button type="submit" class="btn btn-primary mr-2">Submit</button> -->
+                        <input type="submit" value="Add" class="btn btn-primary">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

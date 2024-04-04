@@ -1,0 +1,31 @@
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Edit Category</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Form elements</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <ng-container *ngIf="editCateForm!=null">
+                        <form [formGroup]="editCateForm" (ngSubmit)="update()">
+                            <label for="exampleInputName1">Name</label>
+                            <div class="form-group">
+                                <input type="text" pInputText formControlName="name" style="width:100%; color: #404244; font-family: Poppins;" placeholder="name" />
+                            </div>
+                            <span *ngIf="editCateForm.get('name').touched" style="color:red">
+                                <div *ngIf="editCateForm.hasError('required',['name'])" >Name is required</div>
+                            </span>
+                            <input type="submit" value="Edit" class="btn btn-warning">
+                        </form>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

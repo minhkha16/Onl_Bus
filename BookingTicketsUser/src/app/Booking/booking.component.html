@@ -1,0 +1,237 @@
+<style>
+    .sele {
+        position: relative;
+        padding: 7px 40px 7px 12px;
+        width: 100%;
+        height: 50px;
+        border: 1px solid #E8EAED;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 1px 3px -2px #9098A9;
+        cursor: pointer;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        transition: all 150ms ease;
+    }
+    
+    option {
+        color: #223254;
+    }
+</style>
+<section class="booking-area padding-top-100px padding-bottom-70px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="form-box">
+                    <div class="form-title-wrap">
+                        <h3 class="title">Express</h3>
+                    </div>
+                    <!-- form-title-wrap -->
+                    <div class="form-content ">
+                        <div class="contact-form-action">
+                            <form [formGroup]="bookingForm" (ngSubmit)="save()">
+                                <div class="row">
+                                    <div class="col-lg-6 responsive-column">
+                                        <div class="input-box">
+                                            <label class="label-text">DeliveryName</label>
+                                            <div class="form-group">
+                                                <span class="la la-user form-icon"></span>
+                                                <input class="form-control" type="text" name="text" formControlName="deliveryName" placeholder="Your name">
+                                                <span *ngIf="bookingForm.get('deliveryName').touched" style="color:red">
+                                                <div *ngIf="bookingForm.hasError('required',['deliveryName'])" >DeliveryName is required</div>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col-lg-6 -->
+                                    <div class="col-lg-6 responsive-column">
+                                        <div class="input-box">
+                                            <label class="label-text">RecipientName</label>
+                                            <div class="form-group">
+                                                <span class="la la-user form-icon"></span>
+                                                <input class="form-control" type="text" name="text" placeholder="Your Name" formControlName="recipientName">
+                                                <span *ngIf="bookingForm.get('recipientName').touched" style="color:red">
+                                                    <div *ngIf="bookingForm.hasError('required',['recipientName'])" >RecipientName is required</div>
+                                                    </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 responsive-column">
+                                        <div class="input-box">
+                                            <label class="label-text">DeliveryPhone</label>
+                                            <div class="form-group">
+                                                <span class="la la-phone form-icon"></span>
+                                                <input class="form-control" type="text" formControlName="deliveryPhone" placeholder="Your number">
+                                                <span *ngIf="bookingForm.get('deliveryPhone').touched" style="color:red">
+                                                    <div *ngIf="bookingForm.hasError('required',['deliveryPhone'])" >DeliveryPhone is required</div>
+                                                    <div *ngIf="bookingForm.hasError('pattern',['deliveryPhone'])" >Must be number</div>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col-lg-6 -->
+                                    <div class="col-lg-6 responsive-column">
+                                        <div class="input-box">
+                                            <label class="label-text">RecipientPhone</label>
+                                            <div class="form-group">
+                                                <span class="la la-phone form-icon"></span>
+                                                <input class="form-control" type="text" name="text" formControlName="recipientPhone" placeholder="Phone Number">
+                                                <span *ngIf="bookingForm.get('recipientPhone').touched" style="color:red">
+                                                    <div *ngIf="bookingForm.hasError('required',['recipientPhone'])" >RecipientPhone is required</div>
+                                                    <div *ngIf="bookingForm.hasError('pattern',['recipientPhone'])" >Must be the number</div>
+                                                    </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col-lg-6 -->
+
+                                    <div class="col-lg-6 responsive-column">
+                                        <div class="input-box">
+                                            <label class="label-text">DeliveryAddress</label>
+                                            <div class="form-group">
+                                                <span class="la la-envelope-o form-icon"></span>
+                                                <input class="form-control" type="text" name="text" placeholder="Your Address" formControlName="deliveryAddress">
+                                                <span *ngIf="bookingForm.get('deliveryAddress').touched" style="color:red">
+                                                    <div *ngIf="bookingForm.hasError('required',['deliveryAddress'])" >DeliveryAddress is required</div>
+                                                 </span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 responsive-column">
+                                        <div class="input-box">
+                                            <label class="label-text">RecipientAddress</label>
+                                            <div class="form-group">
+                                                <span class="la la-envelope-o form-icon"></span>
+                                                <input class="form-control" type="text" name="text" formControlName="recipientAddress" placeholder="Your Address">
+                                                <span *ngIf="bookingForm.get('recipientAddress').touched" style="color:red">
+                                                    <div *ngIf="bookingForm.hasError('required',['recipientAddress'])" >RecipientAddress is required</div>
+                                                    </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-6 responsive-column">
+                                        <div class="input-box">
+                                            <label class="label-text">Weight</label>
+                                            <div class="form-group">
+                                                <span class="la la-weight form-icon"></span>
+                                                <input class="form-control" type="text" formControlName="weights" name="weights" placeholder="Your Weight (Kg)" (keyup)="weight($event)">
+                                                <span *ngIf="bookingForm.get('weights').touched" style="color:red">
+                                                    <div *ngIf="bookingForm.hasError('required',['weights'])" >Weights is required</div>
+                                                    <div *ngIf="bookingForm.hasError('pattern',['weights'])" >Must be the number and not greater than 50kg</div>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 responsive-column">
+                                        <div class="input-box">
+                                            <label class="label-text">Pakage</label>
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <!-- <p-dropdown [options]="shipping" formControlName="idShipping" optionLabel="pakage" optionValue="id"></p-dropdown> -->
+
+                                                    <select class="form-control" (change)="choosePrice($event)">
+                                                        <ng-container *ngFor="let c of shipping">
+                                                            <option value="{{c.id}}">{{c.pakage}}</option>
+                                                        </ng-container>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="section-tab check-mark-tab text-center pb-4">
+                                    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="credit-card-tab" data-toggle="tab" href="#credit-card" role="Cash" aria-controls="credit-card" aria-selected="false" payload="visa" (click)="payments($event)">
+                                                <i class="la la-check icon-element"></i>
+                                                <img src="../assets/images/payment-img.png">
+                                                <span class="d-block pt-2">Payment with credit card</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="paypal-tab" data-toggle="tab" href="#paypal" role="Visa" aria-controls="paypal" aria-selected="true" payload="paypal" (click)="payments($event)">
+                                                <i class="la la-check icon-element"></i>
+                                                <img src="../assets/images/paypal.png" alt="">
+                                                <span class="d-block pt-2">Payment with PayPal</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="contact-form-action">
+                                        <div class="col-lg-12">
+                                            <div class="btn-box" style="margin-top: 12px;">
+                                                <input class="theme-btn" [disabled]="bookingForm.invalid" type="submit" value="Confirm Booking" data-toggle="modal" data-target="#payments">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end section-tab -->
+                            </form>
+                        </div>
+                        <!-- end contact-form-action -->
+                    </div>
+                    <!-- end form-content -->
+                </div>
+                <!-- end form-box -->
+
+            </div>
+            <!-- end col-lg-8 -->
+            <div class="col-lg-4">
+                <!-- <form [formGroup]="shippingForm" (ngSubmit)="ok()">
+                    <div class="form-box booking-detail-form">
+                        <div class="col-lg-6 responsive-column">
+                            <div class="input-box">
+                                <label class="label-text">Weight</label>
+                                <div class="form-group">
+                                    <input class="form-control" type="number" name="text" placeholder="Weight(Kg)" (keyup)="weight($event)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 responsive-column">
+                            <div class="input-box">
+                                <label class="label-text">Pakage</label>
+                                <div class="form-group">
+                                    <div class="form-group">
+
+                                        <select class="form-control">
+                                    <ng-container *ngFor="let c of shipping">
+                                        <option value="{{c.price}}">{{c.pakage}}</option>
+                                    </ng-container>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form> -->
+                <div class="form-box booking-detail-form">
+                    <div class="form-title-wrap">
+                        <h3 class="title">Payment</h3>
+                        <ul class="list-items list-items-2 pt-3">
+                            <li><span>Weight</span>{{wei}}kg</li>
+                            <li><span>Price</span>{{pricePakage}}/ 1kg</li>
+                        </ul>
+                    </div>
+                    <div class="form-content">
+                        <div class="card-item shadow-none radius-none mb-0">
+                            <div class="card-body p-0">
+                                <div class="section-block"></div>
+                                <ul class="list-items list-items-2 pt-3">
+                                    <li><span>Total Price:</span>{{prices}}$</li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

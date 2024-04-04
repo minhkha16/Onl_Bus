@@ -1,0 +1,23 @@
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Creation Line</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="addTimeLine" (ngSubmit)="save()">
+                        <label for="exampleInputName1">Line</label>
+                        <div class="form-group">
+                            <input type="text" pInputText formControlName="line" style="width:100%; color: #404244; font-family: Poppins;"  placeholder="Your Line" />
+                        </div>
+                        <span *ngIf="addTimeLine.get('line').touched" style="color:red">
+                            <div *ngIf="addTimeLine.hasError('required',['line'])" >Line is required</div>
+                        </span>
+                        <button type="submit" class="btn btn-primary mr-2">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,166 @@
+<section class="cart-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cart-wrap">
+                    <div class="table-form table-responsive mb-3">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Ticket</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Discount_price</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <ng-container *ngIf="list_details_carts.length==0">
+                                <h3 style="color:red;">Unable to find orders</h3>
+                            </ng-container>
+                            <ng-container *ngFor="let cart of list_details_carts">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="table-content product-content d-flex align-items-center">
+
+                                                <div class="product-content">
+                                                    <a href="room-details.html" class="title">{{cart.placefrom}} - {{cart.placeto}}</a>
+                                                    <div class="product-info-wrap">
+                                                        <div class="product-info line-height-24">
+                                                            <span class="product-info-label">Ghế:</span>
+                                                            <span class="product-info-value">{{cart.namechair}}</span>
+                                                        </div>
+                                                        <div class="product-info line-height-24">
+                                                            <span class="product-info-label">Car:</span>
+                                                            <span class="product-info-value">
+															<span class="product-check-in">{{cart.namecar}}/ </span>
+
+
+                                                            </span>
+                                                            <span class="product-info-label">Thể loại:</span>
+                                                            <span class="product-info-value">
+															<span class="product-check-in">{{cart.catecar}} </span>
+
+
+                                                            </span>
+                                                        </div>
+                                                        <!-- end product-info -->
+                                                        <div class="product-info line-height-24">
+                                                            <span class="product-info-label">Subject:</span>
+                                                            <span class="product-info-value">{{cart.subject}}</span>
+                                                        </div>
+                                                        <!-- end product-info -->
+                                                        <div class="product-info line-height-24">
+                                                            <span class="product-info-label">Thời gian khởi hành:</span>
+                                                            <span class="product-info-value">{{cart.line}} {{cart.datebook}}</span>
+                                                        </div>
+                                                        <!-- end product-info -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <td>
+                                            <Del>{{cart.price}} VNĐ</Del>
+                                        </td>
+                                        <td>
+                                            <div class="product-info">
+                                                <input type="text" class="form-control" value="1" disabled />
+                                            </div>
+                                        </td>
+                                        <ng-container *ngIf="cart.subject=='Elder'">
+                                            <td>{{cart.price*70/100}} VNĐ</td>
+                                        </ng-container>
+                                        <ng-container *ngIf="cart.subject=='Adult'">
+                                            <td>{{cart.price}} VNĐ</td>
+                                        </ng-container>
+                                        <ng-container *ngIf="cart.subject=='Child'">
+                                            <td>{{cart.price*0}} VNĐ</td>
+                                        </ng-container>
+
+                                        <td>
+                                            <div class="remove-wrap">
+                                                <a class="btn font-size-18" (click)="remove(cart.idchaircar,cart.price,cart.subject)"><i class="la la-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </ng-container>
+                        </table>
+                    </div>
+                    <div class="section-block"></div>
+                    <div class="cart-actions d-flex justify-content-between align-items-center pt-4 pb-5">
+                        <div class="contact-form-action">
+                            <form method="post" class="d-flex align-items-center">
+                                <ng-container *ngIf="check==0">
+                                    <div class="form-group mb-0 mr-3">
+                                        <input class="form-control pl-3" type="text" name="text" placeholder="Coupon code" (change)="contentDiscount($event)" />
+                                    </div>
+                                    <button type="button" class="theme-btn" (click)="discount()">Apply Code</button>
+                                </ng-container>
+                                <ng-container *ngIf="check==1">
+                                    <div class="form-group mb-0 mr-3">
+                                        <input class="form-control pl-3" type="text" name="text" placeholder="Coupon code" (change)="contentDiscount($event)" value="{{content}}" disabled />
+                                    </div>
+                                    <button type="button" class="theme-btn" (click)="discount()" disabled>Apply Code</button>
+                                </ng-container>
+
+                            </form>
+                            <p>{{msg}}</p>
+                        </div>
+                        <!-- end contact-form-action -->
+                        <!-- <div class="btn-box">
+							<a href="#" class="theme-btn">Update Cart</a>
+						</div> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 ml-auto">
+                            <div class="cart-totals table-form">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Title</th>
+                                            <th scope="col">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <!-- <th scope="row">
+                                                <div class="table-content">
+                                                    <h3 class="title">Subtotal</h3>
+                                                </div>
+                                            </th>
+                                            <td>$110.00</td>
+                                        </tr> -->
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="table-content">
+                                                        <h3 class="title">Total</h3>
+                                                    </div>
+                                                </th>
+                                                <td>{{total_price}} VNĐ</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="btn-box">
+                                                        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                                <div class="section-block"></div>
+                                <!-- <div class="btn-box text-right pt-4">
+									<a [routerLink]="['/completed']" class="theme-btn">Checkout</a>
+								</div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end cart-wrap -->
+            </div>
+            <!-- end col-lg-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>

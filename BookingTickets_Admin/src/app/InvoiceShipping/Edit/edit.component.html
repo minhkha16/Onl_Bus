@@ -1,0 +1,41 @@
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Edit Discount</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <ng-container *ngIf="editShipping!=null">
+                        <form [formGroup]="editShipping" (ngSubmit)="update()">
+                            <label for=" exampleInputName1 ">Pakage</label>
+                            <div class="form-group ">
+                                <input type="text " pInputText formControlName="pakage" style="width:100%; color: #404244; font-family: Poppins; " placeholder="Your Pakage " />
+                            </div>
+                            <span *ngIf="editShipping.get('pakage').touched" style="color:red">
+                                <div *ngIf="editShipping.hasError('required',['pakage'])" >Pakage is required</div>
+                            </span>
+
+                            <label for=" exampleInputName1 ">Weight</label>
+                            <div class="form-group ">
+                                <input type="text " pInputText formControlName="weight" style="width:100%; color: #404244; font-family: Poppins; " placeholder="Your Weight " />
+                            </div>
+                            <span *ngIf="editShipping.get('weight').touched" style="color:red">
+                                <div *ngIf="editShipping.hasError('required',['weight'])" >Weight is required</div>
+                            </span>
+
+                            <label for=" exampleInputName1 ">Price</label>
+                            <div class="form-group ">
+                                <input type="text " pInputText formControlName="price" style="width:100%; color: #404244; font-family: Poppins; " placeholder="Your Price " />
+                            </div>
+                            <span *ngIf="editShipping.get('price').touched" style="color:red">
+                                <div *ngIf="editShipping.hasError('required',['price'])" >Price is required</div>
+                            </span>
+                            <input type="submit" value="Edit" class="btn btn-warning">
+                        </form>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

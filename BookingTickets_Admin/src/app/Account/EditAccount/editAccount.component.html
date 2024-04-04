@@ -1,0 +1,54 @@
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Edit Account</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body" *ngIf="editaccount !=null">
+                    <form [formGroup]="editaccount" (ngSubmit)="update()">
+                        <label for=" exampleInputName1 ">Name</label>
+                        <div class="form-group ">
+                            <input type="text " pInputText formControlName="fullname" style="width:100%; color: #404244; font-family: Poppins; " placeholder="Name " />
+                        </div>
+
+                        <label for=" exampleInputName1 ">Email</label>
+                        <div class="form-group ">
+                            <input type="text " pInputText formControlName="email" style="width:100%; color: #404244; font-family: Poppins; " placeholder="LicensePlates " />
+                        </div>
+                        <label for=" exampleInputName1 ">Password</label>
+                        <div class="form-group ">
+                            <input type="password" pInputText formControlName="password" style="width:100%; color: #404244; font-family: Poppins; " placeholder="LicensePlates " />
+                        </div>
+                        <label for=" exampleInputName1 ">Phone</label>
+                        <div class="form-group ">
+                            <input type="text " pInputText formControlName="phone" style="width:100%; color: #404244; font-family: Poppins; " placeholder="LicensePlates " />
+                        </div>
+                        <label for=" exampleInputName1 ">Address</label>
+                        <div class="form-group ">
+                            <input type="text " pInputText formControlName="address" style="width:100%; color: #404244; font-family: Poppins; " placeholder="LicensePlates " />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="col-sm-3 col-form-label">Birth Day</label>
+                                <div class="form-group row">
+                                    <div class="col-sm-9">
+                                        <p-calendar [showIcon]="true" formControlName="dob" dateFormat="dd-mm-yy" [style]="{'width':'100%'}"></p-calendar>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <label for="exampleInputName1">Position</label>
+                        <div class="form-group">
+                            <select class="sele" tabindex="-98" formControlName="level" [style]="{'width':'30%','padding':'1%'}">
+                                <option value="1">Driver</option>
+                                <option value="2">Staff</option>
+                            </select>
+                        </div>
+                        <button type="submit " class="btn btn-primary mr-2 ">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

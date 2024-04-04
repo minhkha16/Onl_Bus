@@ -1,0 +1,47 @@
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Edit Discount</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <ng-container *ngIf="editDiscount!=null">
+                        <form [formGroup]="editDiscount" (ngSubmit)="update()">
+                            <label for=" exampleInputName1 ">Content</label>
+                            <div class="form-group ">
+                                <input type="text " pInputText formControlName="content" style="width:100%; color: #404244; font-family: Poppins; " placeholder="Your Content " />
+                            </div>
+                            <span *ngIf="editDiscount.get('content').touched" style="color:red">
+                                <div *ngIf="editDiscount.hasError('required',['content'])" >Content is required</div>
+                            </span>
+
+                            <label for=" exampleInputName1 ">Price</label>
+                            <div class="form-group ">
+                                <input type="text " pInputText formControlName="price" style="width:100%; color: #404244; font-family: Poppins; " placeholder="Your Weight " />
+                            </div>
+                            <span *ngIf="editDiscount.get('price').touched" style="color:red">
+                                <div *ngIf="editDiscount.hasError('required',['price'])" >Price is required</div>
+                            </span>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="col-sm-3 col-form-label"> Date End</label>
+                                    <div class="form-group row">
+                                        <div class="col-sm-9">
+                                            <p-calendar [showIcon]="true" formControlName="dateEnd"></p-calendar>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <span *ngIf="editDiscount.get('dateEnd').touched" style="color:red">
+                                <div *ngIf="editDiscount.hasError('required',['dateEnd'])" >Date End is required</div>
+                            </span>
+                            <input type="submit" value="Edit" class="btn btn-warning">
+                        </form>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

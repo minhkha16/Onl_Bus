@@ -1,0 +1,20 @@
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Create From</h4>
+                    <form [formGroup]="fromto" (ngSubmit)="save()">
+                        <div class="form-group ">
+                            <input type="text " pInputText formControlName="name" style="width:100%; color: #404244; font-family: Poppins; " placeholder="Your name " />
+                        </div>
+                        <span *ngIf="fromto.get('name').touched" style="color:red">
+                            <div *ngIf="fromto.hasError('required',['name'])" >Name is required</div>
+                        </span>
+                        <button type="submit " class="btn btn-primary mr-2 ">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

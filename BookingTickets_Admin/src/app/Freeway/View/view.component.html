@@ -1,0 +1,26 @@
+<p-table [value]="freeways" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10, 25, 50]">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ID</th>
+            <th>Line</th>
+            <th>Options</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-fway>
+        <tr>
+            <td>{{fway.name}}</td>
+            <td>{{fway.price}} USD</td>
+            <td>
+                <a [routerLink]="['/editFreeway',{id: fway.id}]">
+                    <p-button styleClass="p-button-danger p-button-text" icon="pi pi-user-edit"></p-button>
+                </a>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-table>

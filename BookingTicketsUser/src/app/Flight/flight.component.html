@@ -1,0 +1,314 @@
+<section class="hero-wrapper">
+    <div class="hero-box hero-bg">
+        <span class="line-bg line-bg1"></span>
+        <span class="line-bg line-bg2"></span>
+        <span class="line-bg line-bg3"></span>
+        <span class="line-bg line-bg4"></span>
+        <span class="line-bg line-bg5"></span>
+        <span class="line-bg line-bg6"></span>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto responsive--column-l">
+                    <div class="hero-content pb-5">
+                        <div class="section-heading" style="text-align:center; margin-top:10px">
+                            <h4 style="color:white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                                Book cheap car tickets - Compliance 150% if the garage does not hold tickets
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- end hero-content -->
+                    <!-- <div class="section-tab text-center pl-4">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <a class="nav-link d-flex align-items-center active" id="flight-tab" data-toggle="tab" href="#flight" role="tab" aria-controls="flight" aria-selected="true"> <i class="la la-plane mr-1"></i>Bus </a>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="flight-filter-tab text-center">
+                            <div class="section-tab section-tab-3">
+                                <ul id="myTab4" role="tablist" class="nav nav-tabs justify-content-center">
+                                    <li class="nav-item ng-star-inserted"><a id="tab" data-toggle="tab" role="tab" aria-controls="place" aria-selected="true" class="nav-link" href="#c1"> HCM </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- end section-tab -->
+                    <div class="tab-content search-fields-container" id="myTabContent">
+                        <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
+
+                            <!-- ---------------------- -->
+                            <div class="tab-pane fade active show" id="tour" role="tabpanel" aria-labelledby="tour-tab">
+                                <div class="contact-form-action">
+                                    <form [formGroup]="indexFrom" class="row align-items-center" (ngSubmit)="save()">
+                                        <div class="col-lg-4 pr-0">
+                                            <div class="input-box">
+                                                <label class="label-text">From</label>
+                                                <div class="form-group">
+                                                    <span class="la la-map-marker form-icon"></span>
+                                                    <input list="placefrom" onclick="document.getElementById('123').value = ''" name="placefrom" formControlName="placefrom" class="form-control" (change)="PlaceFrom($event)" placeholder="Enter PlaceFrom....." />
+                                                    <datalist id="placefrom">
+                                                        <ng-container *ngFor="let p of placeFroms">
+                                                            <option value="{{p.name}}"></option>
+                                                        </ng-container>
+                                                    </datalist>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end col-lg-4 -->
+                                        <div class="col-lg-4 pr-0">
+                                            <div class="input-box">
+                                                <label class="label-text">To</label>
+                                                <div class="form-group">
+                                                    <span class="la la-map-marker form-icon"></span>
+                                                    <ng-container *ngIf="list_placetos.length > 0 && placeFroms.length > 0">
+                                                        <input id="123" list="placeto" formControlName="placeto" class="form-control" type="text" placeholder="Enter PlaceTo....." />
+                                                        <datalist id="placeto">
+                                                            <ng-container *ngFor="let p of list_placetos">
+                                                                <option id="list_placetos" value="{{p.name}}"></option>
+                                                            </ng-container>
+                                                        </datalist>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="list_placetos.length == 0">
+                                                        <input list="placeto" id="123" class="form-control" type="text" placeholder="Enter PlaceTo....." disabled />
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end col-lg-4 -->
+                                        <div class="col-lg-4">
+                                            <div class="input-box">
+                                                <label class="label-text">Departing</label>
+                                                <div class="form-group">
+                                                    <span class="la la-calendar form-icon"></span>
+                                                    <div class="form-group" style="align-items: center;">
+                                                        <p-calendar formControlName="departing" dateFormat="dd/mm/yy" [showIcon]="true" [showButtonBar]="true"></p-calendar>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end col-lg-4 -->
+
+                                        <div class="btn-box pt-3">
+                                            <input type="submit" value="Search Now" class="theme-btn" style="margin: 10px; border-radius: 20px;">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <h3 style="text-align:center; color:rgb(50, 50, 227)">Popular route</h3>
+                            <div class="popular-round-trip-wrap padding-top-40px">
+                                <div class="tab-content" id="myTabContent4">
+                                    <div class="tab-pane fade show active" id="new-york" role="tabpanel" aria-labelledby="new-york-tab">
+                                        <div class="row">
+                                            <ng-container *ngIf="allfreeways.length==0">
+                                                <b style="text-align:center; color:red ; margin-left: 25%; ">
+                                                    There is currently no bus for the route on this day.
+												</b>
+                                            </ng-container>
+                                            <ng-container *ngFor="let freeway of allfreeways">
+                                                <div class="col-lg-4 responsive-column">
+                                                    <div class="deal-card">
+                                                        <div class="deal-title d-flex align-items-center">
+                                                            <img src="../assets/images/airline-img.png" alt="air-line-img" />
+                                                            <h3 class="deal__title">
+                                                                <a href="#" class="d-flex align-items-center">
+																				<ng-container *ngIf="allfreeways.length>=1">
+																					{{freeway.placefrom}}<i class="la la-exchange mx-2"></i>
+																					{{freeway.placeto}}
+																				</ng-container>
+																			</a>
+                                                            </h3>
+                                                        </div>
+                                                        <div class="deal-action-box d-flex align-items-center justify-content-between">
+                                                            <div class="price-box d-flex align-items-center">
+                                                            </div>
+                                                            <a [routerLink]="['/car',{id_freeway:freeway.id,departing:freeway.date}]" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- -------------------------------- -->
+                            <!-- <div class="tab-content" id="myTabContent3">
+                                <div class="tab-pane fade show active" id="one-way" role="tabpanel" aria-labelledby="one-way-tab">
+                                    <div class="contact-form-action">
+                                        <form [formGroup]="indexFrom" class="row align-items-center" (ngSubmit)="save()">
+                                            <div class="col-lg-6 pr-0">
+                                                <div class="input-box">
+                                                    <label class="label-text">From</label>
+
+                                                    <div class="form-group">
+                                                        <span class="la la-map-marker form-icon"></span>
+                                                        <input list="placefrom" onclick="document.getElementById('123').value = ''" name="placefrom" formControlName="placefrom" class="form-control" (change)="PlaceFrom($event)" placeholder="Enter PlaceFrom....." />
+                                                        <datalist id="placefrom">
+                                                            <ng-container *ngFor="let p of placeFroms">
+                                                                <option value="{{p.name}}"></option>
+                                                            </ng-container>
+                                                        </datalist>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="input-box">
+                                                    <label class="label-text">Flying to</label>
+                                                    <div class="form-group">
+                                                        <span class="la la-map-marker form-icon"></span>
+                                                        <ng-container *ngIf="list_placetos.length > 0 && placeFroms.length > 0">
+                                                            <input id="123" list="placeto" formControlName="placeto" class="form-control" type="text" placeholder="Enter PlaceTo....." />
+                                                            <datalist id="placeto">
+                                                                <ng-container *ngFor="let p of list_placetos">
+                                                                    <option id="list_placetos" value="{{p.name}}"></option>
+                                                                </ng-container>
+                                                            </datalist>
+                                                        </ng-container>
+                                                        <ng-container *ngIf="list_placetos.length == 0">
+                                                            <input list="placeto" id="123" class="form-control" type="text" placeholder="Enter PlaceTo....." disabled />
+                                                        </ng-container>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 pr-0">
+                                                <div class="input-box">
+                                                    <label class="label-text">Departing</label>
+                                                    <div class="form-group" style="align-items: center;">
+                                                        <p-calendar formControlName="departing" dateFormat="dd/mm/yy" [showIcon]="true" [showButtonBar]="true"></p-calendar>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <input type="submit" class="theme-btn w-100 text-center margin-top-20px" value="Search" />
+                                            </div>
+                                        </form>
+
+                                        <h3 style="text-align:center; color:rgb(50, 50, 227)">Tuyến đường</h3>
+                                        <div class="popular-round-trip-wrap padding-top-40px">
+                                            <div class="tab-content" id="myTabContent4">
+                                                <div class="tab-pane fade show active" id="new-york" role="tabpanel" aria-labelledby="new-york-tab">
+                                                    <div class="row">
+                                                        <ng-container *ngIf="allfreeways.length==0">
+                                                            <b style="text-align:center; color:red ; margin-left: 25%; ">
+																Hiện không có chuyến xe cho tuyến đường vào ngày này.
+															</b>
+                                                        </ng-container>
+                                                        <ng-container *ngFor="let freeway of allfreeways">
+                                                            <div class="col-lg-4 responsive-column">
+                                                                <div class="deal-card">
+                                                                    <div class="deal-title d-flex align-items-center">
+                                                                        <img src="../assets/images/airline-img.png" alt="air-line-img" />
+                                                                        <h3 class="deal__title">
+                                                                            <a href="#" class="d-flex align-items-center">
+																				<ng-container *ngIf="allfreeways.length>=1">
+																					{{freeway.placefrom}}<i class="la la-exchange mx-2"></i>
+																					{{freeway.placeto}}
+																				</ng-container>
+																			</a>
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="deal-action-box d-flex align-items-center justify-content-between">
+                                                                        <div class="price-box d-flex align-items-center">
+                                                                        </div>
+                                                                        <a [routerLink]="['/car',{id_freeway:freeway.id,departing:freeway.date}]" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </ng-container>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                        <!-- end tab-pane -->
+                    </div>
+                </div>
+                <!-- end col-lg-12 -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+        <svg class="hero-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none">
+			<path d="M0 10 0 0 A 90 59, 0, 0, 0, 100 0 L 100 10 Z"></path>
+		</svg>
+    </div>
+</section>
+
+
+
+<div class="section-block"></div>
+<section class="round-trip-flight section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading text-center">
+                    <h3 class="sec__title line-height-55" style="font-size:32px">
+                        Most Popular Freeway Today
+                    </h3>
+                </div>
+                <!-- end section-heading -->
+            </div>
+            <!-- end col-lg-12 -->
+        </div>
+        <!-- end row -->
+        <div class="row padding-top-50px">
+            <div class="col-lg-12">
+                <div class="flight-filter-tab text-center">
+                    <div class="section-tab section-tab-3">
+                        <ul class="nav nav-tabs justify-content-center" id="myTab4" role="tablist">
+                            <ng-container *ngFor="let f of list_popular_placefrom">
+                                <li class="nav-item">
+                                    <a class="nav-link" id="tab" data-toggle="tab" href="#c{{f.id}}" role="tab" aria-controls="place" aria-selected="true" (click)="choosePopularFreeway(f.id)">
+										{{f.name}}
+									</a>
+                                </li>
+                            </ng-container>
+                        </ul>
+                    </div>
+                    <!-- end section-tab -->
+                </div>
+                <!-- end flight-filter-tab -->
+                <div class="popular-round-trip-wrap padding-top-40px">
+                    <div class="tab-content" id="myTabContent4">
+                        <div class="tab-pane fade show active" id="newyork-tab" role="tabpanel" aria-labelledby="new-york-tab">
+                            <div class="row">
+                                <ng-container *ngFor="let popular of list_popular_freeway">
+                                    <div class="col-lg-4 responsive-column">
+                                        <div class="deal-card">
+                                            <div class="deal-title d-flex align-items-center">
+                                                <span class="menu-icon" style="color:red; margin: 4px">
+                                                    <i class="pi pi-car"></i>
+                                                  </span>
+                                                <h3 class="deal__title">
+                                                    <a [routerLink]="['/car',{id_freeway:popular.id,departing:popular.date}]" class="d-flex align-items-center">
+														{{popular.placefrom}}{{popular.id}}<i class="la la-exchange mx-2"></i>
+														{{popular.placeto}}
+													</a>
+                                                </h3>
+                                            </div>
+                                            <p class="deal__meta" style="margin-right: 5px;">{{popular.date}}</p>
+                                            <div class="deal-action-box d-flex align-items-center justify-content-between">
+                                                <div class="price-box d-flex align-items-center"><span class="price__from mr-1">From</span><span class="price__num" style="color:red; margin: 3px;">5$</span></div>
+                                                <a [routerLink]="['/car',{id_freeway:popular.id,departing:popular.date}]" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end col-lg-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>

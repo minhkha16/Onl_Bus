@@ -1,0 +1,23 @@
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Creation Category</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="addCate" (ngSubmit)="save()">
+                        <label for=" exampleInputName1 ">Name</label>
+                        <div class="form-group ">
+                            <input type="text " pInputText formControlName="name" style="width:100%; color: #404244; font-family: Poppins; " placeholder="Your Name " />
+                        </div>
+                        <span *ngIf="addCate.get('name').touched" style="color:red">
+                            <div *ngIf="addCate.hasError('required',['name'])" >Name is required</div>
+                        </span>
+                        <button type="submit " class="btn btn-primary mr-2 ">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

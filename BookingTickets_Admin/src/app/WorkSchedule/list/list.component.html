@@ -1,0 +1,39 @@
+<form (ngSubmit)="searchday()" [formGroup]="sea">
+    <div class="card flex justify-content-center">
+        <p-calendar formControlName="search" [showIcon]="true"></p-calendar>
+
+    </div>
+    <button type="submit " class="btn btn-primary mr-2 ">Search</button>
+</form>
+<p-table [value]="works" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10, 25, 50]">
+    <ng-template pTemplate="header">
+        <tr>
+            <th> Name Driver </th>
+            <th> Freeway </th>
+            <th> Line </th>
+            <th> WordDay </th>
+            <th> Name Car </th>
+            <th> Orther </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-ac>
+        <tr>
+            <td>{{ac.nameaccount}}</td>
+            <td> {{ac.namefreeway}}</td>
+            <td> {{ac.line}}</td>
+            <td> {{ac.workDay}}</td>
+            <td> {{ac.nameCar}}</td>
+            <td>
+                <a [routerLink]="['/editword',{id:ac.id}]">
+                    <p-button styleClass="p-button-danger p-button-text" icon="pi pi-calendar-minus"></p-button>
+                </a>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-table>
